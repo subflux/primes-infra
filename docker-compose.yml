@@ -1,0 +1,10 @@
+version: '3'
+services:
+  master:
+    build: .
+  iterator-1:
+    build: .
+  iterator-2:
+    build: .
+  redis:
+    image: "redis:alpine"
