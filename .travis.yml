@@ -6,7 +6,8 @@ services:
   - docker
 
 install:
-  - docker build --rm -t local/primes-infra-test .
+#  - docker build --rm -t local/primes-infra-test .
+  - docker-compose up
 
 script:
-  - docker run --rm -it --name c7-test local/primes-infra-test hi
+  - docker-compose ps
