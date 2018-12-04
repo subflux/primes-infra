@@ -6,8 +6,8 @@ services:
   - docker
 
 install:
-#  - docker build --rm -t local/primes-infra-test .
   - docker-compose up
 
+# Is the docker container running?
 script:
-  - docker-compose ps
+  - docker-compose ps | grep calc
