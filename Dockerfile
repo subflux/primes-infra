@@ -2,8 +2,19 @@ FROM centos:7
 MAINTAINER subflux@gmail.com
 
 USER root
-COPY primes.py /usr/local/bin/
-RUN ln -s /usr/local/bin/primes.py /
-RUN pip install numpy
-ENTRYPOINT ["primes.py"]
+RUN pwd
+RUN ls
+RUN mkdir /opt/primes/
+COPY primes.py /opt/primes/
+COPY requirements.txt /opt/primes/
+RUN ln -s /opt/primes/primes.py /
+RUN adduser primes
+RUN chown primes:primes /opt/primes/primes.py
+# Not necessery on Docker, but possibly less overhead than installing
+# the RHEL SCL which contains `pip`.
+RUN yum -y install python-virtualenv
+RUN virtualenv /opt/primes/venv
+RUN /opt/primes/venv/bin/pip install -r /opt/primes/requirements.txt
+USER primes
+ENTRYPOINT ["/opt/primes/venv/bin/python /opt/primes/primes.py"]
 CMD ["5"]

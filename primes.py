@@ -21,17 +21,6 @@ args= parser.parse_args()
 
 verbose= args.verbose
 
-# if args.modified is not None:
-#     if verbose: 
-#         print "searching for cards modified 'edited' in the past " + args.modified + " days."
-#     search_command=  search_command + " edited:" + args.modified 
-
-
-# if args.year:
-#     if verbose: 
-#         print "searching for -365 days"
-#     search_command= search_command + " created:365"
-
 # Convert the list to a string with spaces
 number_of_primes= int(args.Number[0])
 
