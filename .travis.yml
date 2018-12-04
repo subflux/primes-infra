@@ -9,10 +9,9 @@ services:
 before_install:
   - docker-compose build
 
-# Does the container run, and start the Python primes script?
 script:
+  # Does the container run, and start the Python primes script?
   - docker-compose run --rm primes-calc | grep help
 
-# If we invoke with parameter 5, do we get a list of 5 numbers?
-script:
+  # If we invoke with parameter 5, do we get a list of 5 numbers?
   - docker-compose run --rm primes-calc 5 | wc -l | grep 5 
