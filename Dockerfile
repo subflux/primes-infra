@@ -2,6 +2,7 @@ FROM centos:7
 MAINTAINER subflux@gmail.com
 
 USER root
-RUN cat /etc/redhat-release
-ENTRYPOINT ["/bin/echo"]
-CMD ["If you add an argument to docker run, I'll print that instead."]
+COPY primes.py /usr/local/bin/
+RUN ln -s /usr/local/bin/primes.py /
+ENTRYPOINT ["primes.py"]
+CMD ["5"]

@@ -7,6 +7,6 @@ services:
 #before_install:
 #  - docker build -t local/primes-calc .
 
-# Is the docker container running?
+# Does the container run, and start the Python primes script?
 script:
-  - docker-compose run --rm primes-calc
+  - docker-compose run --rm primes-calc 5

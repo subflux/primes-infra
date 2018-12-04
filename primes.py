@@ -33,10 +33,11 @@ verbose= args.verbose
 #     search_command= search_command + " created:365"
 
 # Convert the list to a string with spaces
-number_of_primes= args.Number[0]
+number_of_primes= int(args.Number[0])
 
 if verbose:
   print "Number of primes to calculate: " + number_of_primes
 
 # Implementation
-print "2 3 5"
+for x in range(number_of_primes):
+  print(x)
