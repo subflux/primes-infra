@@ -15,6 +15,7 @@ RUN chown primes:primes /opt/primes/primes.py
 RUN yum -y install python-virtualenv
 RUN virtualenv /opt/primes/venv
 RUN /opt/primes/venv/bin/pip install -r /opt/primes/requirements.txt
+RUN echo /opt/primes/venv/bin/python /opt/primes/primes.py > /entrypoint.sh
 USER primes
-ENTRYPOINT ["/opt/primes/venv/bin/python /opt/primes/primes.py"]
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["5"]
