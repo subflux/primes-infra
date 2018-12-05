@@ -7,10 +7,9 @@ RUN ls
 RUN mkdir /opt/primes/
 COPY primes.py /opt/primes/
 COPY requirements.txt /opt/primes/
-RUN ln -s /opt/primes/primes.py /
 RUN adduser primes
 RUN chown primes:primes /opt/primes/primes.py
-# Not necessery on Docker, but possibly less overhead than installing
+# Not necessary on Docker, but possibly less overhead than installing
 # the RHEL SCL which contains `pip`.
 RUN yum -y install python-virtualenv
 RUN virtualenv /opt/primes/venv
