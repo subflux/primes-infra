@@ -14,7 +14,7 @@ RUN yum -y install epel-release  \
  && yum -y install python-pip \
  && pip install -r /opt/primes/requirements.txt
 RUN echo "#!/bin/bash" > /entrypoint.sh \
- && echo '/opt/primes/venv/bin/python /opt/primes/primes.py $@' >> /entrypoint.sh
+ && echo '/opt/primes/primes.py $@' >> /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
 USER primes
 ENTRYPOINT ["/entrypoint.sh"]
