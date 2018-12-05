@@ -58,13 +58,19 @@ for x in range(2,(number_of_primes + 2) - 1):
         # current_int is a prime, so next one, and all
         # following the same incrementor, are not.
         current_int = current_int + iteration_increment
-        # flag as NOT PRIME
         # in case we increment outside the end of the list
         if current_int <= (number_of_primes + 2) - 1:
+            # flag as NOT PRIME
             a[current_int] = 0
             print a[current_int]
 
-print "Iterating through the array."
-for x in range(2,number_of_primes + 2):
+print "Iterating through the structure."
+primes_seen = 0
+
+for x in range(2,(number_of_primes + 2) - 1):
+# Iterate through the whole data structure
     if a[x] == 1:
-        print x
+        primes_seen = primes_seen + 1
+        print "Prime " + str(primes_seen) + ": " + str(x)
+
+# Append to the array in chunks?
