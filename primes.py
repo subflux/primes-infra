@@ -52,18 +52,24 @@ for x in range(2,a.size-1):
         print "Integer is: " + str(x)
         print "Increment is: " + str(x)
 
-    # Until we hit the end of our list...
-    while current_int <= a.size-1:
-        # Move to next incremental int
-        if verbose:
-            print "current_int: " + str(current_int)
-        # current_int is a prime, so next one, and all
-        # following the same incrementor, are not.
-        current_int = current_int + iteration_increment
-        # in case we increment outside the end of the list
-        if current_int <= a.size-1:
-            # flag as NOT PRIME
-            a[current_int] = 0
+    # The previous incrementer run (x-1, x-2...)
+    # may have already identified non-primes. Don't
+    # need to kick off incrementers for these.
+
+
+    if a[current_int] != 0: 
+        # Until we hit the end of our list...
+        while current_int <= a.size-1:
+            # Move to next int to kick off an incrementer run
+            if verbose:
+                print "current_int: " + str(current_int)
+            # current_int is a prime, so next one, and all
+            # following the same incrementor, are not.
+            current_int = current_int + iteration_increment
+            # in case we increment outside the end of the list
+            if current_int <= a.size-1:
+                # flag as NOT PRIME
+                a[current_int] = 0
 
 # How about stopping running the iterator once we've
 # identified enough primes?
