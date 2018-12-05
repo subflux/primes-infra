@@ -2,8 +2,7 @@ FROM centos:7
 MAINTAINER subflux@gmail.com
 
 USER root
-RUN pwd
-RUN ls
+# Create app folder in our container
 RUN mkdir /opt/primes/
 COPY primes.py /opt/primes/
 COPY requirements.txt /opt/primes/
