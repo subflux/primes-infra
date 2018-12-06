@@ -55,8 +55,6 @@ for x in range(2,a.size-1):
     # The previous incrementer run (x-1, x-2...)
     # may have already identified non-primes. Don't
     # need to kick off incrementers for these.
-
-
     if a[current_int] != 0: 
         # Until we hit the end of our list...
         while current_int <= a.size-1:
